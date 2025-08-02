@@ -7,14 +7,20 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Countdown + Matrix Effect -->
   <div id="countdown-container">
     <canvas id="matrix-canvas"></canvas>
-    <div id="countdown-text">3</div>
+    <div id="countdown-text">5</div>
   </div>
 
+  <!-- Starry Sky Background -->
+  <canvas id="stars-canvas"></canvas>
+
+  <!-- Background Music -->
   <audio id="bg-music" src="ahiiii.mp3" autoplay loop></audio>
   <button id="music-toggle">🔊</button>
 
+  <!-- Main Content -->
   <div class="container">
     <img src="cake.jpg" alt="Bánh sinh nhật" class="birthday-image" />
     <h1>🎉 Happy Birthday 🎉</h1>
@@ -26,6 +32,8 @@
       <button id="next-page">➡</button>
     </div>
     <p id="page-message"></p>
+
+    <div id="fancy-message-container"></div>
   </div>
 
   <script src="script.js"></script>

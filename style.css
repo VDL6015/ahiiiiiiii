@@ -1,98 +1,123 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #fff0f5;
   overflow: hidden;
-}
-
-#matrix-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: black;
+  color: white;
 }
 
 #countdown-container {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  background-color: black;
+  z-index: 10;
   display: flex;
-  align-items: center;
   justify-content: center;
-  z-index: 1000;
+  align-items: center;
+  background: black;
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+#matrix-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 #countdown-text {
-  font-size: 10rem;
-  color: hotpink;
+  font-size: 120px;
   font-weight: bold;
+  color: #ff69b4;
+  z-index: 2;
+}
+
+#stars-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .container {
   display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   position: relative;
+  z-index: 2;
   text-align: center;
-  color: deeppink;
-  padding: 30px;
-  z-index: 1;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 1s;
 }
 
 .birthday-image {
-  width: 150px;
-  margin-bottom: 20px;
+  width: 125px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #ff69b4;
+}
+
+.book {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+#page-image {
+  width: 250px;
+  height: auto;
+  border: 5px solid white;
+  border-radius: 10px;
+  box-shadow: 0 0 20px white;
+}
+
+button {
+  background: #ff69b4;
+  border: none;
+  padding: 10px 15px;
+  font-size: 20px;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
 #music-toggle {
   position: fixed;
   top: 10px;
   right: 10px;
-  background: pink;
-  border: none;
-  padding: 10px;
-  border-radius: 50%;
-  font-size: 18px;
-  cursor: pointer;
   z-index: 20;
 }
 
-.book {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
+#fancy-message-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10;
 }
 
-.book img {
-  width: 300px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.4);
-  transition: transform 0.6s ease;
-}
-
-.book button {
-  background: deeppink;
-  color: white;
-  border: none;
+.fancy-word {
+  position: absolute;
+  white-space: nowrap;
   font-size: 24px;
-  margin: 0 15px;
-  border-radius: 10px;
-  padding: 8px 16px;
-  cursor: pointer;
-  transition: background 0.3s ease;
+  font-weight: bold;
+  color: #ffd700;
+  animation: fly 5s linear forwards;
+  text-shadow: 0 0 5px #fff, 0 0 10px #ff69b4;
 }
 
-.book button:hover {
-  background: hotpink;
-}
-
-#page-message {
-  margin-top: 15px;
-  font-size: 1.2rem;
-  color: #d63384;
+@keyframes fly {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100vw) translateY(-100vh) scale(0.5);
+    opacity: 0;
+  }
 }
