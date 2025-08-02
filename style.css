@@ -24,6 +24,8 @@ body {
   position: absolute;
   top: 0;
   left: 0;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 #countdown-text {
@@ -38,8 +40,8 @@ body {
   top: 0;
   left: 0;
   z-index: 0;
-  width: 100%;
-  height: 100%;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .container {
@@ -56,33 +58,33 @@ body {
 }
 
 .birthday-image {
-  width: 125px;
-  margin-bottom: 10px;
+  width: 150px; /* Giảm kích thước cho điện thoại */
+  margin-bottom: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 20px #ff69b4;
+  box-shadow: 0 0 10px #ff69b4;
 }
 
 .book {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin: 20px 0;
+  gap: 5px;
+  margin: 15px 0;
 }
 
 #page-image {
-  width: 250px;
+  width: 200px; /* Giảm kích thước cho điện thoại */
   height: auto;
-  border: 5px solid white;
-  border-radius: 10px;
-  box-shadow: 0 0 20px white;
+  border: 3px solid white;
+  border-radius: 5px;
+  box-shadow: 0 0 10px white;
 }
 
 button {
   background: #ff69b4;
   border: none;
-  padding: 10px 15px;
-  font-size: 20px;
-  border-radius: 20px;
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
@@ -91,6 +93,8 @@ button {
   top: 10px;
   right: 10px;
   z-index: 20;
+  padding: 5px 10px;
+  font-size: 16px;
 }
 
 #fancy-message-container {
@@ -104,11 +108,11 @@ button {
 .fancy-word {
   position: absolute;
   white-space: nowrap;
-  font-size: 24px;
+  font-size: 18px; /* Giảm kích thước chữ trên điện thoại */
   font-weight: bold;
   color: #ffd700;
   animation: fly 5s linear forwards;
-  text-shadow: 0 0 5px #fff, 0 0 10px #ff69b4;
+  text-shadow: 0 0 3px #fff, 0 0 5px #ff69b4;
 }
 
 @keyframes fly {
@@ -119,5 +123,21 @@ button {
   100% {
     transform: translateX(100vw) translateY(-100vh) scale(0.5);
     opacity: 0;
+  }
+}
+
+/* Media query cho màn hình nhỏ (điện thoại) */
+@media (max-width: 768px) {
+  #countdown-text {
+    font-size: 80px;
+  }
+  .birthday-image {
+    width: 120px;
+  }
+  #page-image {
+    width: 150px;
+  }
+  .fancy-word {
+    font-size: 14px;
   }
 }
