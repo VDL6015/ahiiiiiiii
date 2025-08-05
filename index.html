@@ -1,41 +1,40 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Chúc Mừng Sinh Nhật</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <!-- Countdown + Matrix Effect -->
-  <div id="countdown-container">
-    <canvas id="matrix-canvas"></canvas>
-    <div id="countdown-text">5</div>
-  </div>
-
-  <!-- Starry Sky Background -->
-  <canvas id="stars-canvas"></canvas>
-
-  <!-- Background Music -->
-  <audio id="bg-music" src="ahiiii.mp3" autoplay loop></audio>
-  <button id="music-toggle">🔊</button>
-
-  <!-- Main Content -->
-  <div class="container">
-    <img src="cake.jpg" alt="Bánh sinh nhật" class="birthday-image" />
-    <h1>🎉 Happy Birthday 🎉</h1>
-    <p id="birthday-message">Đang tải lời chúc...</p>
-
-    <div class="book">
-      <button id="prev-page">⬅</button>
-      <img id="page-image" src="" alt="Trang ảnh sinh nhật" />
-      <button id="next-page">➡</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chúc Mừng Sinh Nhật</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Countdown + Matrix Effect -->
+    <div id="countdown-container">
+      <canvas id="matrix-canvas"></canvas>
+      <div id="countdown-text">HAPPY</div>
     </div>
-    <p id="page-message"></p>
 
-    <div id="fancy-message-container"></div>
-  </div>
+    <!-- Starry Sky Background -->
+    <canvas id="stars-canvas"></canvas>
+    <canvas id="weather-canvas"></canvas>
 
-  <script src="script.js"></script>
-</body>
+    <!-- Background Music -->
+    <audio id="bg-music" src="ahiiii.mp3" autoplay loop></audio>
+    <button id="music-toggle">🔊</button>
+
+    <!-- Main Content -->
+    <div class="container">
+      <img src="cake.jpg" alt="Bánh sinh nhật" class="birthday-image" />
+      <h1>🎉 Happy Birthday 🎉</h1>
+      <p id="birthday-message">Đang tải lời chúc...</p>
+
+      <div class="book">
+        <button id="prev-page">⬅</button>
+        <img id="page-image" src="" alt="Trang ảnh sinh nhật" />
+        <button id="next-page">➡</button>
+      </div>
+      <p id="page-message"></p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>

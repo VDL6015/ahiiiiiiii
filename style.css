@@ -18,36 +18,7 @@ body {
   background: black;
   opacity: 1;
   transition: opacity 1s;
-} /* ...existing code... */
-#fancy-message-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 10;
 }
-
-.fancy-word {
-  position: absolute;
-  white-space: nowrap;
-  font-size: 18px;
-  font-weight: bold;
-  color: #ffd700;
-  animation: fly 5s linear forwards;
-  text-shadow: 0 0 3px #fff, 0 0 5px #ff69b4;
-}
-
-@keyframes fly {
-  0% {
-    transform: translate(0, 0) scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(100vw) translateY(-100vh) scale(0.5);
-    opacity: 0;
-  }
-}
-/* ...existing code... */
 
 #matrix-canvas {
   position: absolute;
@@ -64,13 +35,14 @@ body {
   z-index: 2;
 }
 
-#stars-canvas {
+#stars-canvas,
+#weather-canvas {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 0;
   width: 100% !important;
   height: 100% !important;
+  z-index: 0;
 }
 
 .container {
@@ -87,13 +59,14 @@ body {
 }
 
 .birthday-image {
-  width: 150px;
+  width: 120px;
   margin-bottom: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px #ff69b4;
 }
 
 .book {
+  perspective: 1000px;
   display: flex;
   align-items: center;
   gap: 5px;
@@ -101,11 +74,17 @@ body {
 }
 
 #page-image {
-  width: 200px;
+  width: 220px;
   height: auto;
   border: 3px solid white;
   border-radius: 5px;
   box-shadow: 0 0 10px white;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+#page-image.flipped {
+  transform: rotateY(180deg);
 }
 
 button {
@@ -124,4 +103,32 @@ button {
   z-index: 20;
   padding: 5px 10px;
   font-size: 16px;
+}
+
+#custom-message {
+  margin-top: 20px;
+}
+
+#custom-input {
+  padding: 5px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+#custom-submit {
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+  #countdown-text {
+    font-size: 80px;
+  }
+  .birthday-image {
+    width: 120px;
+  }
+  #page-image {
+    width: 150px;
+  }
 }
