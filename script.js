@@ -168,7 +168,7 @@ window.onload = () => {
         star.radius * 3
       );
       gradient.addColorStop(0, `rgba(255, 255, 255, ${star.alpha * 0.8})`);
-      gradient.addColorStop(0.5, `rgba(255, 215, 0, ${star.alpha * 0.5})`);
+      gradient.addColorStop(0.5, `rgba(255, 255, 255, ${star.alpha * 0.5})`);
       gradient.addColorStop(1, `rgba(255, 255, 255, 0)`);
       starsCtx.fillStyle = gradient;
       starsCtx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
@@ -190,36 +190,45 @@ window.onload = () => {
     requestAnimationFrame(drawStars);
   }
   drawStars();
-
-  // WEATHER EFFECT (LEAVES FOR AUGUST): Tạo hiệu ứng lá bay
-  let leaves = [];
+  // WEATHER EFFECT (HEARTS FOR AUGUST): Tạo hiệu ứng trái tim bay
+  let hearts = [];
   for (let i = 0; i < 50; i++) {
-    leaves.push({
+    hearts.push({
       x: Math.random() * weatherCanvas.width,
       y: -20,
       vy: Math.random() * 1 + 0.5,
+      size: Math.random() * 8 + 10,
       rotation: Math.random() * 360,
     });
   }
-  function drawLeaves() {
-    wCtx.clearRect(0, 0, weatherCanvas.width, weatherCanvas.height);
-    wCtx.fillStyle = "#ffffffff";
-    for (let leaf of leaves) {
-      leaf.y += leaf.vy;
-      leaf.rotation += 1;
-      if (leaf.y > weatherCanvas.height) leaf.y = -20;
-      wCtx.save();
-      wCtx.translate(leaf.x, leaf.y);
-      wCtx.rotate((leaf.rotation * Math.PI) / 180);
-      wCtx.beginPath();
-      wCtx.moveTo(0, 0);
-      wCtx.lineTo(10, 0);
-      wCtx.lineTo(5, -10);
-      wCtx.closePath();
-      wCtx.fill();
-      wCtx.restore();
-    }
-    requestAnimationFrame(drawLeaves);
+  function drawHeart(ctx, x, y, size, rotation) {
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate((rotation * Math.PI) / 180);
+    ctx.beginPath();
+    // Vẽ trái tim bằng bezier
+    ctx.moveTo(0, -size / 4);
+    ctx.bezierCurveTo(size / 2, -size / 2, size, size / 3, 0, size);
+    ctx.bezierCurveTo(-size, size / 3, -size / 2, -size / 2, 0, -size / 4);
+    ctx.closePath();
+    ctx.fillStyle = "#ff69b4";
+    ctx.shadowColor = "#fff";
+    ctx.shadowBlur = 8;
+    ctx.fill();
+    ctx.restore();
   }
-  drawLeaves();
+  function drawHearts() {
+    wCtx.clearRect(0, 0, weatherCanvas.width, weatherCanvas.height);
+    for (let heart of hearts) {
+      heart.y += heart.vy;
+      heart.rotation += 1;
+      if (heart.y > weatherCanvas.height) {
+        heart.y = -20;
+        heart.x = Math.random() * weatherCanvas.width;
+      }
+      drawHeart(wCtx, heart.x, heart.y, heart.size, heart.rotation);
+    }
+    requestAnimationFrame(drawHearts);
+  }
+  drawHearts();
 };
