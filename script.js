@@ -46,7 +46,8 @@ window.onload = () => {
     if (countdown < 0) {
       clearInterval(countdownInterval);
       clearInterval(matrixInterval);
-      document.getElementById("countdown-container").style.transition = "opacity 1s";
+      document.getElementById("countdown-container").style.transition =
+        "opacity 1s";
       document.getElementById("countdown-container").style.opacity = "0";
       setTimeout(() => {
         document.getElementById("countdown-container").style.display = "none";
@@ -80,7 +81,9 @@ window.onload = () => {
   const musicBtn = document.getElementById("music-toggle");
   function tryPlay() {
     music.play().catch(() => {
-      document.body.addEventListener("click", () => music.play(), { once: true });
+      document.body.addEventListener("click", () => music.play(), {
+        once: true,
+      });
     });
   }
   tryPlay();
@@ -96,11 +99,31 @@ window.onload = () => {
 
   // BOOK FLIP
   const pages = [
-    { img: "anh 10.jpg", message: "Chúc bạn tuổi mới luôn rạng rỡ như ánh mặt trời!" },
-    { img: "anh 11.jpg", message: "Mong mọi điều ước của bạn đều trở thành sự thật!" },
-    { img: "anh 12.jpg", message: "Hạnh phúc, sức khỏe và thành công sẽ luôn bên bạn 🎂" },
-    { img: "anh 13.jpg", message: "Luôn tràn đầy năng lượng tích cực trong cuộc sống!" },
-    { img: "anh 15.jpg", message: "Chúc một năm mới đầy bất ngờ và thú vị! 🎁" },
+    {
+      img: "anh 10.jpg",
+      message:
+        "Chúc chị luôn xinh đẹp, hạnh phúc và thành công trong mọi điều chị làm",
+    },
+    {
+      img: "anh 11.jpg",
+      message:
+        "Chúc chị tuổi mới thật nhiều niềm vui, sức khỏe và luôn rạng rỡ",
+    },
+    {
+      img: "anh 12.jpg",
+      message:
+        "Chúc chị luôn mạnh khỏe, bình an và gặp thật nhiều điều tốt đẹp trong cuộc sống",
+    },
+    {
+      img: "anh 13.jpg",
+      message:
+        "Chúc chị luôn được yêu thương, gặp nhiều may mắn và đạt được mọi ước mơ",
+    },
+    {
+      img: "anh 15.jpg",
+      message:
+        "Chúc chị Diện quan như ngọc, Diện tái phù dung, Bế nguyệt tu hoa ",
+    },
   ];
   let currentPage = 0;
   function loadPage(index) {
@@ -127,7 +150,7 @@ window.onload = () => {
       alpha: Math.random(),
       delta: Math.random() * 0.02,
       vx: (Math.random() - 0.5) * 2,
-      vy: (Math.random() - 0.5) * 2
+      vy: (Math.random() - 0.5) * 2,
     });
   }
   function drawStars() {
@@ -135,7 +158,14 @@ window.onload = () => {
     starsCtx.fillRect(0, 0, starsCanvas.width, starsCanvas.height);
     for (let star of stars) {
       starsCtx.beginPath();
-      const gradient = starsCtx.createRadialGradient(star.x, star.y, 0, star.x, star.y, star.radius * 5);
+      const gradient = starsCtx.createRadialGradient(
+        star.x,
+        star.y,
+        0,
+        star.x,
+        star.y,
+        star.radius * 5
+      );
       gradient.addColorStop(0, `rgba(255, 255, 255, ${star.alpha})`);
       gradient.addColorStop(1, `rgba(255, 255, 255, 0)`);
       starsCtx.fillStyle = gradient;
@@ -145,7 +175,12 @@ window.onload = () => {
       star.y += star.vy;
       star.alpha += star.delta;
       if (star.alpha <= 0 || star.alpha >= 1) star.delta *= -1;
-      if (star.x < 0 || star.x > starsCanvas.width || star.y < 0 || star.y > starsCanvas.height) {
+      if (
+        star.x < 0 ||
+        star.x > starsCanvas.width ||
+        star.y < 0 ||
+        star.y > starsCanvas.height
+      ) {
         star.x = Math.random() * starsCanvas.width;
         star.y = Math.random() * starsCanvas.height;
       }
@@ -155,30 +190,4 @@ window.onload = () => {
   drawStars();
 
   // FANCY FLYING TEXT EFFECT
-  const beautifulWords = `Hết hồn như gặp tiên, khuynh quốc khuynh thành, chim sa cá lặn, hoa nhường nguyệt thẹn, quốc sắc thiên hương, trời sinh quyến rũ, mắt ngọc mày ngài, thướt tha mềm mại, duyên dáng yêu kiều, quyến rũ mê người, thơm tho xinh tươi...`.split(",");
-  function showFlyingWords() {
-    const container = document.getElementById("fancy-message-container");
-    let shuffledWords = [...beautifulWords];
-    for (let i = shuffledWords.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffledWords[i], shuffledWords[j]] = [shuffledWords[j], shuffledWords[i]];
-    }
-
-    shuffledWords.forEach((word, index) => {
-      const randomDelay = Math.random() * 2000;
-      setTimeout(() => {
-        const span = document.createElement("span");
-        span.textContent = word.trim();
-        span.className = "fancy-word";
-        span.style.top = `${Math.random() * window.innerHeight}px`;
-        span.style.left = `-${Math.random() * 200}px`;
-        container.appendChild(span);
-        setTimeout(() => span.remove(), 5000);
-      }, index * 300 + randomDelay);
-    });
-
-    const totalDelay = shuffledWords.length * 300 + Math.max(...shuffledWords.map(() => Math.random() * 2000)) + 1000;
-    setTimeout(showFlyingWords, totalDelay);
-  }
-  setTimeout(showFlyingWords, 6000);
 };

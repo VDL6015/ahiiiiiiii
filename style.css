@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   background-color: black;
   color: white;
 }
@@ -58,7 +58,7 @@ body {
 }
 
 .birthday-image {
-  width: 150px; /* Giảm kích thước cho điện thoại */
+  width: 150px;
   margin-bottom: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px #ff69b4;
@@ -72,7 +72,7 @@ body {
 }
 
 #page-image {
-  width: 200px; /* Giảm kích thước cho điện thoại */
+  width: 200px;
   height: auto;
   border: 3px solid white;
   border-radius: 5px;
@@ -108,7 +108,7 @@ button {
 .fancy-word {
   position: absolute;
   white-space: nowrap;
-  font-size: 18px; /* Giảm kích thước chữ trên điện thoại */
+  font-size: 18px;
   font-weight: bold;
   color: #ffd700;
   animation: fly 5s linear forwards;
@@ -126,7 +126,6 @@ button {
   }
 }
 
-/* Media query cho màn hình nhỏ (điện thoại) */
 @media (max-width: 768px) {
   #countdown-text {
     font-size: 80px;
