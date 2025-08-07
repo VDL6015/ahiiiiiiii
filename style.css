@@ -121,6 +121,13 @@ button {
   border-radius: 5px;
 }
 
+.chuc-mung {
+  font-size: 22px;
+  font-weight: bold;
+  color: #e3b2cb;
+  text-shadow: 0 0 8px #fff;
+}
+
 @media (max-width: 768px) {
   #countdown-text {
     font-size: 80px;

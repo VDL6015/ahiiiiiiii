@@ -65,7 +65,7 @@ window.onload = () => {
   }, 1000);
 
   // TYPEWRITER: Tạo hiệu ứng gõ chữ
-  let fullMessage = "Chúc mừng sinh nhật! 🎈 Mong bạn luôn cười thật tươi!";
+  let fullMessage = "Chúc mừng sinh nhật! 🎈 Mong chị luôn cười thật tươi!";
   let i = 0;
   function startTypewriter() {
     const messageEl = document.getElementById("birthday-message");
@@ -105,21 +105,28 @@ window.onload = () => {
   const pages = [
     {
       img: "anh1.jpg",
-      message: "Chúc bạn tuổi mới luôn rạng rỡ như ánh mặt trời!",
+      message:
+        "Chúc chị tuổi mới thật nhiều niềm vui, sức khỏe và luôn rạng rỡ",
     },
     {
       img: "anh2.jpg",
-      message: "Mong mọi điều ước của bạn đều trở thành sự thật!",
+      message:
+        "Chúc chị luôn bình bình an an bình an và gặp thật nhiều điều tốt đẹp trong cuộc sống",
     },
     {
       img: "anh3.jpg",
-      message: "Hạnh phúc, sức khỏe và thành công sẽ luôn bên bạn 🎂",
+      message:
+        "Chúc chị luôn may mắn, đạt được nhiều thành công trong công việc và cuộc sống",
     },
     {
       img: "anh4.jpg",
-      message: "Luôn tràn đầy năng lượng tích cực trong cuộc sống!",
+      message: "Chúc chị luôn tràn đầy năng lượng tích cực trong cuộc sống",
     },
-    { img: "anh5.jpg", message: "Chúc một năm mới đầy bất ngờ và thú vị! 🎁" },
+    {
+      img: "anh5.jpg",
+      message:
+        "Chúc chị luôn Diện quan như ngọc, Diện tái phù dung, Bế nguyệt tu hoa",
+    },
   ];
   let currentPage = 0;
   function loadPage(index) {
@@ -128,7 +135,9 @@ window.onload = () => {
     pageImage.classList.add("flipped");
     setTimeout(() => {
       pageImage.src = page.img;
-      document.getElementById("page-message").textContent = page.message;
+      const pageMsg = document.getElementById("page-message");
+      pageMsg.textContent = page.message;
+      pageMsg.className = "chuc-mung"; // Thêm class nổi bật
       pageImage.classList.remove("flipped");
     }, 300);
   }
@@ -190,7 +199,7 @@ window.onload = () => {
     requestAnimationFrame(drawStars);
   }
   drawStars();
-  // WEATHER EFFECT (HEARTS FOR AUGUST): Tạo hiệu ứng trái tim bay
+  // WEATHER EFFECT
   let hearts = [];
   for (let i = 0; i < 50; i++) {
     hearts.push({
