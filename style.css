@@ -29,7 +29,7 @@ body {
 }
 
 #countdown-text {
-  font-size: 120px;
+  font-size: 100px;
   font-weight: bold;
   color: #ff69b4;
   z-index: 2;
@@ -53,14 +53,14 @@ body {
   position: relative;
   z-index: 2;
   text-align: center;
-  padding: 20px;
+  padding: 10px; /* Giảm từ 20px xuống 10px */
   opacity: 0;
   transition: opacity 1s;
 }
 
 .birthday-image {
-  width: 120px;
-  margin-bottom: 20px;
+  width: 100px;
+  margin-bottom: 10px; /* Giảm từ 15px xuống 10px */
   border-radius: 10px;
   box-shadow: 0 0 10px #ff69b4;
 }
@@ -70,15 +70,15 @@ body {
   display: flex;
   align-items: center;
   gap: 5px;
-  margin: 15px 0;
+  margin: 10px 0; /* Giảm từ 15px xuống 10px */
 }
 
 #page-image {
-  width: 220px;
+  width: 180px; /* Giảm từ 220px xuống 180px */
   height: auto;
-  border: 3px solid white;
+  border: 2px solid white; /* Giảm từ 3px xuống 2px */
   border-radius: 5px;
-  box-shadow: 0 0 10px white;
+  box-shadow: 0 0 8px white; /* Giảm shadow từ 10px xuống 8px */
   transition: transform 0.6s;
   transform-style: preserve-3d;
 }
@@ -90,52 +90,68 @@ body {
 button {
   background: #ff69b4;
   border: none;
-  padding: 8px 12px;
-  font-size: 16px;
+  padding: 6px 10px; /* Giảm từ 8px 12px xuống 6px 10px */
+  font-size: 14px; /* Giảm từ 16px xuống 14px */
   border-radius: 5px;
   cursor: pointer;
 }
 
 #music-toggle {
   position: fixed;
-  top: 10px;
-  right: 10px;
+  top: 5px; /* Giảm từ 10px xuống 5px */
+  right: 5px; /* Giảm từ 10px xuống 5px */
   z-index: 20;
-  padding: 5px 10px;
-  font-size: 16px;
+  padding: 4px 8px; /* Giảm từ 5px 10px xuống 4px 8px */
+  font-size: 14px; /* Giảm từ 16px xuống 14px */
 }
 
 #custom-message {
-  margin-top: 20px;
+  margin-top: 15px; /* Giảm từ 20px xuống 15px */
 }
 
 #custom-input {
-  padding: 5px;
-  font-size: 16px;
+  padding: 4px; /* Giảm từ 5px xuống 4px */
+  font-size: 14px; /* Giảm từ 16px xuống 14px */
   border-radius: 5px;
 }
 
 #custom-submit {
-  padding: 5px 10px;
-  font-size: 16px;
+  padding: 4px 8px; /* Giảm từ 5px 10px xuống 4px 8px */
+  font-size: 14px; /* Giảm từ 16px xuống 14px */
   border-radius: 5px;
 }
 
 .chuc-mung {
-  font-size: 20px;
+  font-size: 18px; /* Giảm từ 20px xuống 18px */
   font-weight: bold;
   color: #e3b2cb;
-  text-shadow: 0 0 8px #615e5e;
+  text-shadow: 0 0 6px #615e5e; /* Giảm shadow từ 8px xuống 6px */
 }
 
 @media (max-width: 768px) {
   #countdown-text {
-    font-size: 80px;
+    font-size: 60px; /* Giảm từ 80px xuống 60px */
   }
   .birthday-image {
-    width: 120px;
+    width: 90px; /* Giảm từ 120px xuống 90px */
   }
   #page-image {
-    width: 150px;
+    width: 140px; /* Giảm từ 150px xuống 140px */
+  }
+  .chuc-mung {
+    font-size: 14px; /* Giảm từ 16px xuống 14px */
+  }
+  button {
+    padding: 5px 8px; /* Giảm padding thêm trên mobile */
+    font-size: 12px; /* Giảm font-size thêm trên mobile */
+  }
+  #music-toggle {
+    top: 3px; /* Giảm từ 5px xuống 3px */
+    right: 3px; /* Giảm từ 5px xuống 3px */
+    padding: 3px 6px; /* Giảm padding thêm trên mobile */
+    font-size: 12px; /* Giảm font-size thêm trên mobile */
+  }
+  .container {
+    padding: 5px; /* Giảm padding từ 10px xuống 5px trên mobile */
   }
 }
