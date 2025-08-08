@@ -150,17 +150,15 @@ window.onload = () => {
     loadPage(currentPage);
   });
 
-  // ENHANCED STARRY SKY: Tạo bầu trời sao cải tiến
+  // ENHANCED STARRY SKY
   let stars = [];
-  for (let i = 0; i < 300; i++) {
+  for (let i = 0; i < 10; i++) {
     stars.push({
       x: Math.random() * starsCanvas.width,
       y: Math.random() * starsCanvas.height,
       radius: Math.random() * 2 + 0.5,
       alpha: Math.random(),
-      delta: Math.random() * 0.03 + 0.01,
-      vx: (Math.random() - 0.5) * 0.5,
-      vy: (Math.random() - 0.5) * 0.5,
+      delta: Math.random() * 0.1 + 0.05, // Tăng tốc độ nhấp nháy
     });
   }
   function drawStars() {
@@ -176,22 +174,15 @@ window.onload = () => {
         star.y,
         star.radius * 3
       );
-      gradient.addColorStop(0, `rgba(255, 255, 255, ${star.alpha * 0.8})`);
+      gradient.addColorStop(0, `rgba(255, 255, 255, ${star.alpha})`);
       gradient.addColorStop(0.5, `rgba(255, 255, 255, ${star.alpha * 0.5})`);
       gradient.addColorStop(1, `rgba(255, 255, 255, 0)`);
       starsCtx.fillStyle = gradient;
       starsCtx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
       starsCtx.fill();
-      star.x += star.vx;
-      star.y += star.vy;
       star.alpha += star.delta;
-      if (star.alpha <= 0.3 || star.alpha >= 1) star.delta *= -1;
-      if (
-        star.x < 0 ||
-        star.x > starsCanvas.width ||
-        star.y < 0 ||
-        star.y > starsCanvas.height
-      ) {
+      if (star.alpha <= 0.3 || star.alpha >= 1) {
+        star.delta *= -1;
         star.x = Math.random() * starsCanvas.width;
         star.y = Math.random() * starsCanvas.height;
       }
@@ -201,7 +192,7 @@ window.onload = () => {
   drawStars();
   // WEATHER EFFECT
   let hearts = [];
-  for (let i = 0; i < 50; i++) {
+  for (let i = 0; i < 10; i++) {
     hearts.push({
       x: Math.random() * weatherCanvas.width,
       y: -20,
